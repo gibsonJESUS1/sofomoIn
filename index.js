@@ -26,6 +26,9 @@ mongoose
       useUnifiedTopology: true,
     }
   )
+  .catch((error) => {
+    console.log({ error });
+  })
   .then(() => {
     console.log("DATABASE CONNECTED");
   });
@@ -35,10 +38,10 @@ app.use(express.json());
 app.use("/api", userRouter);
 app.use("/api", geolocationDetails);
 
-app.get("/add", function (request, response) {
-  var idAddress = request.socket.remoteAddress;
-  console.log(idAddress);
-});
+// app.get("/add", function (request, response) {
+//   var idAddress = request.socket.remoteAddress;
+//   console.log(idAddress);
+// });
 
 server.listen(process.env.PORT, () => {
   console.log(`SERVER IS RUNNING ON PORT${process.env.PORT}`);

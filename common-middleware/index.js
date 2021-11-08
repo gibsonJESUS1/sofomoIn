@@ -4,7 +4,7 @@ const User = require("../model/user.model");
 exports.requireSignin = (req, res, next) => {
   if (req.headers.authorization) {
     const token = req.headers.authorization.split(" ")[1];
-    const user = jwt.verify(token, process.env.JWT_EKOSEC);
+    const user = jwt.verify(token, process.env.JWT_EKOSECD);
     req.user = user;
   } else {
     return res.status(401).json({ msg: "Autorisation Required" });

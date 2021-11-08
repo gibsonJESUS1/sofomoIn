@@ -43,7 +43,7 @@ exports.Signin = (req, res) => {
       if (isPassord && user.role === "user") {
         const token = jwt.sign(
           { _id: user._id, role: user.role },
-          process.env.JWT_EKOSEC,
+          process.env.JWT_EKOSECD,
           {
             expiresIn: "1d",
           }
